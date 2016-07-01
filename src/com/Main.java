@@ -1,5 +1,7 @@
 package com;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -11,9 +13,12 @@ public class Main {
     static int newMinusCash;
 
     public static void getMenu() {
-        System.out.println("=== SeventyFly's Bank ===\n");
+        System.out.println("\n=== SeventyFly's Bank ===\n");
+        Date d = new Date();
         System.out.println("Здраствуйте, " + client1.name + "!\n");
-        System.out.println("1. Проверить свой баланс.");
+        SimpleDateFormat format1 = new SimpleDateFormat("Сегодня: dd.MM.yyyy\nТекущее время: hh:mm");
+        System.out.println(format1.format(d));
+        System.out.println("\n1. Проверить свой баланс.");
         System.out.println("2. Засчитать деньги на свой банковский счет.");
         System.out.println("3. Снять деньги с своего банковского счета.");
         System.out.println("4. Выйти.\n");
@@ -37,9 +42,9 @@ public class Main {
     }
 
     public static void myBalance() {
-        System.out.println("=== SeventyFly's Bank ===\n");
-        System.out.println("Ваш текущий баланс - " + client1.cash + " грн.\n");
-        System.out.println("Вернуться в главное меню? \n1 - Да, пожалуйста!\n2 - Нет, спасибо!\n");
+        System.out.println("\n=== SeventyFly's Bank ===\n");
+        System.out.println("Ваш текущий баланс - " + client1.cash + " грн.");
+        System.out.println("\nВернуться в главное меню? \n1 - Да, пожалуйста!\n2 - Нет, спасибо!\n");
         System.out.print("Пожалуйста, сделайте Ваш выбор: ");
         yourMenuChoice = yourMenuCh.nextInt();
         if(yourMenuChoice == 1){
@@ -54,13 +59,13 @@ public class Main {
     }
 
     public static void addMoney(){
-        System.out.println("=== SeventyFly's Bank ===\n");
+        System.out.println("\n=== SeventyFly's Bank ===\n");
         newPlusCash = client1.getCash();
         System.out.print("Введите, пожалуйста, Вашу суму которою хотите засчитать на счет: ");
         client1.setCash(newPlusCash + yourMenuCh.nextInt());
         int addedCash = client1.cash - newPlusCash;
         System.out.println("Вы успешно добавили на свой банковский счет - " + addedCash + " грн!");
-        System.out.println("Ваш текущий баланс счета - " + client1.getCash() + " грн!");
+        System.out.println("Ваш текущий баланс счета - " + client1.getCash() + " грн!\n");
         System.out.println("Вернуться в главное меню? \n1 - Да, пожалуйста!\n2 - Нет, спасибо!\n");
         System.out.print("Пожалуйста, сделайте Ваш выбор: ");
         yourMenuChoice = yourMenuCh.nextInt();
@@ -76,7 +81,7 @@ public class Main {
     }
 
     public static void wdMoney(){
-        System.out.println("=== SeventyFly's Bank ===\n");
+        System.out.println("\n=== SeventyFly's Bank ===\n");
         newMinusCash = client1.getCash();
         System.out.print("Введите, пожалуйста, Вашу суму которою хотите снять с вашего счета: ");
         client1.setCash(newMinusCash - yourMenuCh.nextInt());
@@ -99,7 +104,7 @@ public class Main {
 
 
     public static void myExit(){
-        System.out.println("=== SeventyFly's Bank ===\n");
+        System.out.println("\n=== SeventyFly's Bank ===\n");
         System.out.println("Спасибо, что доверяете нам!");
         System.out.println("\n=== SeventyFly's Bank ===\n");
         System.exit(0);
